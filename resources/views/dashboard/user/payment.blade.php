@@ -57,11 +57,11 @@
 					</tr>
 					<tr>
 						<th>تخفیف</th>
-						<td>5.800 تومان</td>
+						<td>0</td>
 					</tr>
 					<tr>
 						<th>مبلغ قابل پرداخت:</th>
-						<td>255.240 تومان</td>
+						<td>{{ $event->cost }} تومان</td>
 					</tr>
 				</tbody></table>
 			</div>
