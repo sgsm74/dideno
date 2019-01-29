@@ -6,7 +6,6 @@
         <div class="container" style="background-color: rgba(0,0,0,.7);margin-bottom: 200px;padding: 50px;border-radius: 20px;">
             <div class="banner_content">
                 <h2>{{ $information->title }}</h2>
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
                 </p>
             </div>
         </div>
