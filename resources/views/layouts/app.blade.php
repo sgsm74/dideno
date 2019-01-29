@@ -5,6 +5,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="description" content="Dideno | Health Education Group">
+        <meta name="keywords" content="education,startup,technology,health,medical">
+        <meta name="author" content="Dideno">
         <link rel="icon" href="{{ asset('img/favicon.png') }}" type="image/png">
         <title>گروه آموزشی دیدنو</title>
         <!-- Bootstrap CSS -->
