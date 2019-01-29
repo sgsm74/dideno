@@ -33,13 +33,16 @@ class NewsController extends Controller
     	$post->content = $request->get('content');
 
     	if($request->hasFile('thumbnail')){
-			$thumbnail = Input::file('thumbnail');
-    		$thumbnailName = $thumbnail->getClientOriginalName();
-    		$path = 'thumbnail/'.date('Y-m-d');
-    		$dir = $path.'/'.$thumbnailName;
-    		if(Storage::disk('public')->put($path.'/'.$thumbnailName, File::get($thumbnail))){
-    			$post->thumbnail = $dir;
-    		}
+            $thumbnail = Input::file('thumbnail');
+            $thumbnailName = $thumbnail->getClientOriginalName();
+            $path = 'uploads/thumbnail/'.date('Y-m-d').'/';
+            // $dir = $path.'/'.$thumbnailName;
+            // if(Storage::disk('public')->put($path.'/'.$thumbnailName, File::get($thumbnail))){
+            //  $post->thumbnail = $dir;
+            // }
+            if($thumbnail->move($path, $thumbnailName)){
+                $post->thumbnail = $path.''.$thumbnailName;
+            }
 		}
 		if($post->save())
 			return back()->with('error','رویداد با موفقیت ایجاد شد');
@@ -71,11 +74,14 @@ class NewsController extends Controller
     	if($request->hasFile('thumbnail')){
 			$thumbnail = Input::file('thumbnail');
     		$thumbnailName = $thumbnail->getClientOriginalName();
-    		$path = 'thumbnail/'.date('Y-m-d');
-    		$dir = $path.'/'.$thumbnailName;
-    		if(Storage::disk('public')->put($path.'/'.$thumbnailName, File::get($thumbnail))){
-    			$post->thumbnail = $dir;
-    		}
+            $path = 'uploads/thumbnail/'.date('Y-m-d').'/';
+    		// $dir = $path.'/'.$thumbnailName;
+    		// if(Storage::disk('public')->put($path.'/'.$thumbnailName, File::get($thumbnail))){
+    		// 	$post->thumbnail = $dir;
+    		// }
+            if($thumbnail->move($path, $thumbnailName)){
+                $post->thumbnail = $path.''.$thumbnailName;
+            }
 		}
 		if($post->save())
 			return back()->with('error','رویداد با موفقیت ایجاد شد');

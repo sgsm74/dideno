@@ -73,11 +73,14 @@ class EventController extends Controller
 		if($request->hasFile('poster')){
 			$poster = Input::file('poster');
     		$posterName = $poster->getClientOriginalName();
-    		$path = 'posters/'.date('Y-m-d');
-    		$dir = $path.'/'.$posterName;
-    		if(Storage::disk('public')->put($path.'/'.$posterName, File::get($poster))){
-    			$event->poster = $dir;
-    		}
+    		$path = 'uploads/posters/'.date('Y-m-d').'/';
+    		// $dir = $path.'/'.$posterName;
+    		// if(Storage::disk('public')->put($path.'/'.$posterName, File::get($poster))){
+    		// 	$event->poster = $dir;
+    		// }
+             if($poster->move($path, $posterName)){
+                $event->poster = $path.''.$posterName;
+            }
 		}
 		if($event->save())
 			return back()->with('error','رویداد با موفقیت ایجاد شد');
@@ -136,10 +139,13 @@ class EventController extends Controller
         if($request->hasFile('poster')){
             $poster = Input::file('poster');
             $posterName = $poster->getClientOriginalName();
-            $path = 'posters/'.date('Y-m-d');
-            $dir = $path.'/'.$posterName;
-            if(Storage::disk('public')->put($path.'/'.$posterName, File::get($poster))){
-                $event->poster = $dir;
+            $path = 'uploads/posters/'.date('Y-m-d').'/';
+            // $dir = $path.'/'.$posterName;
+            // if(Storage::disk('public')->put($path.'/'.$posterName, File::get($poster))){
+            //  $event->poster = $dir;
+            // }
+             if($poster->move($path, $posterName)){
+                $event->poster = $path.''.$posterName;
             }
         }
         if($event->save())

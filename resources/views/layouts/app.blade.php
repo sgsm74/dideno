@@ -54,7 +54,7 @@
                             <div class="dropdown ">
                               <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" style="margin: 10px 0px;">
                                 حساب کاربری
-                                <img src="{{ asset('storage/'.Auth::user()->avatar) }}" alt="" class="avatar">
+                                <img src="{{ asset(Auth::user()->avatar) }}" alt="" class="avatar">
                               </button>
                               <div class="dropdown-menu dropdown-menu-right">
                                 @if(Auth::user()->isAdmin())

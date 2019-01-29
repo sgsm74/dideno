@@ -101,7 +101,7 @@
                     <article class="row blog_item" style="margin-right:5px">
                         <div class="col-md-10">
                             <div class="blog_post">
-                                <img src="{{ asset('storage/'.$post->thumbnail) }}" alt="" style="max-width: 555px;max-height: 280px">
+                                <img src="{{ asset($post->thumbnail) }}" alt="" style="max-width: 555px;max-height: 280px">
                                 <div class="blog_info text-right">
                                     <ul class="blog_meta list">
                                         <li>{{ DateHelper::setToJalaliDate($post->created_at) }} <i class="lnr lnr-calendar-full"></i></li>

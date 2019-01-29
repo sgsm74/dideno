@@ -23,7 +23,7 @@
         <div class="welcome_inner row" style="margin-top: 50px;">
             <div class="col-md-5" >
                 <div class="welcome_img">
-                    <img class="img-fluid" src="{{ asset('storage/'.$event->poster) }}" alt="" style="width: 500px;height: 550px">
+                    <img class="img-fluid" src="{{ asset($event->poster) }}" alt="" style="width: 500px;height: 550px">
                 </div>
                 <div class="col-lg-12 events_meta" style="margin: 30px 0px;">
                     <div class="container future_event">

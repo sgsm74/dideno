@@ -63,14 +63,17 @@ class ProfileController extends Controller
 
 		$user->gender = $request->get('gender');
     	if($request->hasFile('avatar')){
-    		$avatar = Input::file('avatar');
-    		$avatarName = $avatar->getClientOriginalName();
-    		$path = 'avatars/'.date('Y-m-d');
-    		$dir = $path.'/'.$avatarName;
-    		if(Storage::disk('public')->put($path.'/'.$avatarName, File::get($avatar))){
-    			$user->avatar = $dir;
-    		}
-    	}
+            $avatar = Input::file('avatar');
+            $avatarName = $avatar->getClientOriginalName();
+            $path = 'uploads/avatars/'.date('Y-m-d').'/';
+            // $dir = $path.'/'.$avatarName;
+            // if(Storage::disk('public')->put($path.'/'.$avatarName, File::get($avatar))){
+            //  $user->avatar = $dir;
+            // }
+            if($avatar->move($path, $avatarName)){
+                $user->avatar = $path.''.$avatarName;
+            }
+        }
 
     	$user->save();
     	return back();

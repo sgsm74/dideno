@@ -132,7 +132,7 @@
                     @if($lastUsers)
 						@foreach($lastUsers as $user)
 		                    <li>
-		                      <img src="{{ asset('storage/'.$user->avatar) }}" alt="User Image">
+		                      <img src="{{ asset($user->avatar) }}" alt="User Image">
 		                      <a class="users-list-name" href="#" title="{{ $user->fullname }}">{{ $user->fullname }}</a>
 		                      <span class="users-list-date">امروز</span>
 		                    </li>
