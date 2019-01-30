@@ -22,6 +22,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('count-down', require('./components/CountDown.vue').default);
 Vue.component('contact-component', require('./components/ContactComponent.vue').default);
 Vue.component('clock-component', require('./components/ClockComponent.vue').default);
+Vue.component('discount-component', require('./components/DiscountCode.vue').default);
 Vue.filter('two_digits', function (value) {
     if(value.toString().length <= 1)
     {

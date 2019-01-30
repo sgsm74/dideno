@@ -3,7 +3,7 @@
 اطلاعات خرید
 @endsection
 @section('content')
-<section class="invoice" id="app">
+<section class="invoice">
 	<!-- title row -->
 	<div class="row" >
 		<div class="col-xs-12">
@@ -37,35 +37,10 @@
 			</address>
 		</div>
 		<!-- /.col -->
-		<div class="col-sm-4 invoice-col">
-			<strong>کد تخفیف</strong><br>
-			<form action="" method="post" accept-charset="utf-8">
-				@csrf
-				<div class="input-group input-group-sm">
-					<input type="text" class="form-control">
-					<span class="input-group-btn">
-						<button type="button" class="btn btn-info btn-flat">اعمال</button>
-					</span>
-				</div>
-			</form>
-			<div style="margin-top: 50px">
-				<div class="table-responsive">
-				<table class="table">
-					<tbody><tr>
-						<th style="width:50%">مبلغ کل:</th>
-						<td>{{ $event->cost }} تومان</td>
-					</tr>
-					<tr>
-						<th>تخفیف</th>
-						<td>0</td>
-					</tr>
-					<tr>
-						<th>مبلغ قابل پرداخت:</th>
-						<td>{{ $event->cost }} تومان</td>
-					</tr>
-				</tbody></table>
-			</div>
-			</div>
+		<div class="col-sm-4 invoice-col" id="app">
+			
+			<discount-component cost="{{ $event->cost }}"></discount-component>
+
 		</div>
 		<!-- /.col -->
 	</div>

@@ -117,7 +117,7 @@ class EventController extends Controller
             'date' => 'required',
             'cost' => 'required|numeric|min:0',
             'capacity' => 'required|numeric|min:0',
-            'poster' => 'required|image|mimes:jpg,jpeg,gif,png|max:1024',
+            'poster' => 'nullable|image|mimes:jpg,jpeg,gif,png|max:1024',
             'describtion' => 'required'
         ]);
 

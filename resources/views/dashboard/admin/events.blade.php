@@ -39,7 +39,7 @@
               <a style="padding-left: 2px" href="{{ route('admin.events.show',$event->id) }}" title="ویرایش"><span class="fa fa-edit (alias)"></span></a>
               <a style="padding-left: 2px" href="{{ route('admin.events.delete', $event->id) }}" title="حذف"><span class="fa fa-trash"></span></a>
               <a style="padding-left: 2px" href="{{ route('admin.events.users', $event->id) }}" title="شرکت کنندگان"><span class="fa fa-users"></span></a>
-              <a style="padding-left: 2px" href="" title="ایجاد کد تخفیف"><span class="fa fa-money"></span></a>
+              <a style="padding-left: 2px" href="{{ route('admin.discounts', $event->id) }}" title="ایجاد کد تخفیف"><span class="fa fa-money"></span></a>
                 
             </td>
           </tr>

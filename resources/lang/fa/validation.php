@@ -178,5 +178,9 @@ return [
         'contennt'              =>'محتوا',
         'thumbnail'             =>'تصویر شاخص',
         'major'                 =>'رشته تحصیلی',
+        'code'                  =>'کد',
+        'percent'               =>'درصد',
+        'expireDate'            =>'تاریخ انقضا',
+        'count'                 =>'تعداد'
     ],
 ];

@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Services\Ticket\EventTicket;
+use Illuminate\Support\Facades\Session;
 class PaymentGateway extends Controller
 {
     function gateway(Request $request,Bank $bank){
@@ -18,10 +19,10 @@ class PaymentGateway extends Controller
         $this->validate($request, [
             'id' => 'required|integer|min:0',// به تومان
         ]);
-
-        if($event = Event::find($request->id)){
+        
+        if($event = Event::find($request->id) && Session::get('event_discount') == $request->id){
             $tempCash=new Cash();
-            $tempCash->Amount=(int)$event->cost;
+            $tempCash->Amount=Session::get('event_cost');
             $tempCash->user_id=Auth::id();
             $tempCash->event_id=$request->id;
             $tempCash->is_paid = 0;// به معنی  این است که موقته
@@ -52,6 +53,15 @@ class PaymentGateway extends Controller
             
             $ticket->createTicket(Auth::user(), $cash);
             
+            if(Session::has('discount')){
+                $discount = Session::has('discount');
+                $discount->decrement('count');
+                $discount->save();
+            }
+            
+
+            Session::forget(['discount','event_cost','event_discount']);
+
             return view('dashboard.user.report', [
                 'RefId' => $cash->RefId,
                 'Amount' => $cash->Amount,

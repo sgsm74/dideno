@@ -17,4 +17,10 @@ class Event extends Model
 
     	return $this->hasMany(Cash::class);
     }
+
+    //هر رویداد چندین کد تخفیف دارد
+    public function discounts(){
+
+    	return $this->hasMany(Discount::class);
+    }
 }

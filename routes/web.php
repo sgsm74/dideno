@@ -40,10 +40,10 @@ Route::group([
 		Route::get('report','HomeController@report')->name('user.report');
 		Route::get('{user}/{cash}/zarinpal/verify', 'PaymentGateway@paymentVerify')->name('zarinpalRevertURL');
 		Route::post('gateway','PaymentGateway@gateway')->name('user.gateway');
-		
 		Route::get('profile','HomeController@profile')->name('user.profile');
 		Route::post('changePassword','ProfileController@changePassword')->name('user.password');
 		Route::post('updateProfile','ProfileController@update')->name('user.update');
+		Route::post('event/discount/calculate','EventController@calculate')->name('user.discounts.calculate');
 
 	});
 Route::group([
@@ -61,6 +61,10 @@ Route::group([
 		Route::get('event/{id}/delete','EventController@delete')->name('admin.events.delete');
 		Route::PATCH('event/{id}/update','EventController@update')->name('admin.events.update');
 		Route::get('event/{id}/users','EventController@users')->name('admin.events.users');
+		
+		Route::get('event/{id}/discount','DiscountController@index')->name('admin.discounts');
+		Route::post('event/addDiscount','DiscountController@store')->name('admin.discounts.store');
+		Route::get('event/discount/{id}/delete','DiscountController@delete')->name('admin.discounts.delete');
 
 		Route::get('news','NewsController@index')->name('admin.news');
 		Route::get('news/create','NewsController@create')->name('admin.news.create');
