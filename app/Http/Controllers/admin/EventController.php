@@ -177,6 +177,7 @@ class EventController extends Controller
     public function users($id)
     {
         //
+        $ida[]='';
         $id = DB::table('event_user')->select('user_id')->where('event_id',$id)->get();
         foreach($id as $ids)
             $ida[] = $ids->user_id;
