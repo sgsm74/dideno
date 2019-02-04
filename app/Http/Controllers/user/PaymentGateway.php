@@ -54,9 +54,8 @@ class PaymentGateway extends Controller
             $ticket->createTicket(Auth::user(), $cash);
             
             if(Session::has('discount')){
-                $discount = Session::has('discount');
-                $discount->decrement('count');
-                $discount->save();
+                $discount = Session::get('discount');
+                DB::table('discounts')->where('id', $discount->id)->decrement('count');
             }
             
 
