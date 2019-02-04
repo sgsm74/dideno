@@ -52,10 +52,10 @@ class RegisterController extends Controller
             'lastName' => ['required', 'string', 'max:255'],
             'major' => ['required', 'string', 'max:255'],
             'university' => ['required', 'string', 'max:255'],
-            'phoneNumber' => ['required', 'string', 'max:11'],
+            'phoneNumber' => ['required', 'string', 'numeric', 'max:11'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'SN' => ['required', 'string', 'max:10'],
+            'SN' => ['required', 'string', 'numeric', 'max:10'],
             'grade' => ['required','in:"none", "diploma", "associate", "bachelor", "master", "doctoral"']
         ]);
     }
